@@ -1,11 +1,11 @@
-FROM mhart/alpine-node:4.2
+FROM mhart/alpine-node:5.4
 MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
 # Important!  Update this no-op ENV variable when this Dockerfile
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT 2016-01-08
+ENV REFRESHED_AT 2016-01-10
 ENV ELIXIR_VERSION 1.2.0
 ENV HOME /root
 

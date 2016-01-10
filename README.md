@@ -3,7 +3,7 @@
 This Dockerfile provides everything you need to run your Phoenix application in Docker out of the box. It is built
 on the excellent `mhart/alpine-node` image, and borrows heavily from the `msaraiva/elixir` Dockerfile as well.
 
-By default, it installs Erlang (18.1), Elixir (1.2.0), Node.js (4.2.x), Hex and Rebar. It can handle compiling
+By default, it installs Erlang (18.1), Elixir (1.2.0), Node.js (5.4.x), Hex and Rebar. It can handle compiling
 your Node and Elixir dependencies as part of it's build.
 
 ## Usage
@@ -24,7 +24,7 @@ a
 Extending for your own application:
 
 ```dockerfile
-FROM bitwalker/alpine-elixir-phoenix:1.0
+FROM bitwalker/alpine-elixir-phoenix:2.0
 
 # Set exposed ports
 EXPOSE 5000
