@@ -14,7 +14,7 @@ Dockerfile so that your app runs in a non-elevated context.
 To boot straight to a prompt in the image:
 
 ```
-$ docker run --rm -it bitwalker/alpine-elixir-phoenix iex
+$ docker run --rm -it --user=root bitwalker/alpine-elixir-phoenix iex
 Erlang/OTP 18 [erts-7.3] [source] [64-bit] [smp:2:2] [async-threads:10] [kernel-poll:false]
 
 Interactive Elixir (1.2.4) - press Ctrl+C to exit (type h() ENTER for help)
