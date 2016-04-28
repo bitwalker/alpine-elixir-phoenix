@@ -15,7 +15,7 @@ RUN \
     apk --no-cache --update add \
       git make g++ wget curl \
       elixir=1.2.4-r0 \
-      nodejs=4.4.2-r0 && \
+      nodejs=5.10.1-r0 && \
     npm install npm -g --no-progress && \
     update-ca-certificates --fresh && \
     rm -rf /var/cache/apk/*
@@ -26,5 +26,7 @@ ENV PATH ./node_modules/.bin:$PATH
 # Install Hex+Rebar
 RUN mix local.hex --force && \
     mix local.rebar --force
+
+WORKDIR /opt/app
 
 CMD ["/bin/sh"]
