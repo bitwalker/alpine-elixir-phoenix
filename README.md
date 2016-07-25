@@ -2,7 +2,7 @@
 
 This Dockerfile provides everything you need to run your Phoenix application in Docker out of the box.
 
-It is based on my `alpine-erlang` image, and installs Elixir (1.2.4), Node.js (5.4.x), Hex and Rebar. It can handle compiling
+It is based on my `alpine-erlang` image, and installs Elixir (1.3.1), Node.js (6.2.x), Hex and Rebar. It can handle compiling
 your Node and Elixir dependencies as part of it's build.
 
 ## Usage
