@@ -33,13 +33,13 @@ FROM bitwalker/alpine-elixir-phoenix:latest
 EXPOSE 5000
 ENV PORT=5000 MIX_ENV=prod
 
-# Cache npm deps
-ADD package.json package.json
-RUN npm install
-
-# Same with elixir deps
+# Cache elixir deps
 ADD mix.exs mix.lock ./
 RUN mix do deps.get, deps.compile
+
+# Same with npm deps
+ADD package.json package.json
+RUN npm install
 
 ADD . .
 
