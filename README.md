@@ -2,19 +2,20 @@
 
 This Dockerfile provides everything you need to run your Phoenix application in Docker out of the box.
 
-It is based on my `alpine-erlang` image, and installs Elixir (1.3.1), Node.js (6.2.x), Hex and Rebar. It can handle compiling
+It is based on my `alpine-erlang` image, and installs Elixir (1.3.x), Node.js (6.2.x), Hex and Rebar. It can handle compiling
 your Node and Elixir dependencies as part of it's build.
 
 ## Usage
 
-NOTE: This image sets up a `default` user, with home set to `/opt/app` and owned by that user. The working directory
-is also set to `$HOME`. It is highly recommended that you add a `USER default` instruction to the end of your 
-Dockerfile so that your app runs in a non-elevated context.
+NOTE: This image is intended to run in unprivileged environments, it sets the home directory to `/opt/app`, and makes it globally
+read/writeable. If run with a random, high-index user account (say 1000001), the user can run an app, and that's about it. If run
+with a user of your own creation, this doesn't apply (necessarily, you can of course implement the same behaviour yourself).
+It is highly recommended that you add a `USER default` instruction to the end of your Dockerfile so that your app runs in a non-elevated context.
 
 To boot straight to a prompt in the image:
 
 ```
-$ docker run --rm -it --user=root bitwalker/alpine-elixir-phoenix iex
+$ docker run --rm -it --user=1000001 bitwalker/alpine-elixir-phoenix iex
 Erlang/OTP 18 [erts-7.3] [source] [64-bit] [smp:2:2] [async-threads:10] [kernel-poll:false]
 
 Interactive Elixir (1.2.4) - press Ctrl+C to exit (type h() ENTER for help)
