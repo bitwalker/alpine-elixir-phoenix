@@ -5,13 +5,14 @@ MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2016-08-13 \
-    HOME=/opt/app/ \
+ENV REFRESHED_AT=2016-10-10 \
     # Set this so that CTRL+G works properly
     TERM=xterm
 
 # Install Elixir
 RUN \
+    mkdir -p /opt/app && \
+    chmod -R 777 /opt/app && \
     echo "@edge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk update && \
     apk --no-cache --update add \
@@ -23,7 +24,8 @@ RUN \
     rm -rf /var/cache/apk/*
 
 # Add local node module binaries to PATH
-ENV PATH ./node_modules/.bin:$PATH
+ENV PATH=./node_modules/.bin:$PATH \
+    HOME=/opt/app
 
 # Install Hex+Rebar
 RUN mix local.hex --force && \
