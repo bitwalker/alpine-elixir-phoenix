@@ -9,7 +9,7 @@ ENV REFRESHED_AT=2017-01-12 \
     # Set this so that CTRL+G works properly
     TERM=xterm
 
-# Install Elixir
+# Install NPM
 RUN \
     mkdir -p /opt/app && \
     chmod -R 777 /opt/app && \
