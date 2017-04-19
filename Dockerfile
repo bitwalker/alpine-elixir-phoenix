@@ -15,7 +15,7 @@ RUN \
     chmod -R 777 /opt/app && \
     apk update && \
     apk --no-cache --update add \
-      git make g++ wget curl inotify-tools \
+      git make g++ wget curl curl-dev inotify-tools \
       nodejs && \
     npm install npm -g --no-progress && \
     update-ca-certificates --fresh && \
