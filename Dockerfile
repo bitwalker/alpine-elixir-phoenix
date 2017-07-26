@@ -16,7 +16,7 @@ RUN \
     apk update && \
     apk --no-cache --update add \
       git make g++ wget curl inotify-tools \
-      nodejs && \
+      nodejs nodejs-current-npm && \
     npm install npm -g --no-progress && \
     update-ca-certificates --fresh && \
     rm -rf /var/cache/apk/*
