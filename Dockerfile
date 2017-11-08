@@ -5,7 +5,7 @@ MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2017-07-26 \
+ENV REFRESHED_AT=2017-11-07 \
     # Set this so that CTRL+G works properly
     TERM=xterm
 
@@ -16,7 +16,7 @@ RUN \
     apk update && \
     apk --no-cache --update add \
       git make g++ wget curl inotify-tools \
-      nodejs nodejs-current-npm && \
+      nodejs nodejs-npm && \
     npm install npm -g --no-progress && \
     update-ca-certificates --fresh && \
     rm -rf /var/cache/apk/*
