@@ -5,7 +5,7 @@ MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2017-11-07 \
+ENV REFRESHED_AT=2017-11-20 \
     # Set this so that CTRL+G works properly
     TERM=xterm
 
@@ -23,6 +23,8 @@ RUN \
 
 # Add local node module binaries to PATH
 ENV PATH=./node_modules/.bin:$PATH \
+    MIX_HOME=/opt/mix \
+    HEX_HOME=/opt/hex \
     HOME=/opt/app
 
 # Install Hex+Rebar
