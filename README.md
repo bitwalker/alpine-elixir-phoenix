@@ -39,14 +39,19 @@ ADD mix.exs mix.lock ./
 RUN mix do deps.get, deps.compile
 
 # Same with npm deps
-ADD package.json package.json
-RUN npm install
+ADD assets/package.json assets/
+RUN cd assets/ && \
+    npm install
+
 
 ADD . .
 
 # Run frontend build, compile, and digest assets
-RUN brunch build --production && \
+RUN cd assets && \
+    brunch build --production && \
+    cd - && \
     mix do compile, phoenix.digest
+
 
 USER default
 
