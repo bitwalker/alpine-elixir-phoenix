@@ -63,7 +63,7 @@ It is recommended when using this that you have the following in `.dockerignore`
 ```
 _build
 deps
-node_modules
+assets/node_modules
 test
 ```
 
