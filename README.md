@@ -36,18 +36,21 @@ ADD mix.exs mix.lock ./
 RUN mix do deps.get, deps.compile
 
 # Same with npm deps
-ADD package.json package.json
-RUN npm install
+ADD assets/package.json assets/
+RUN cd assets && \
+    npm install
 
 ADD . .
 
 # Run frontend build, compile, and digest assets
-RUN brunch build --production && \
-    mix do compile, phoenix.digest
-
+RUN cd assets/ && \
+    npm run deploy && \
+    cd - && \
+    mix do compile, phx.digest
+    
 USER default
 
-CMD ["mix", "phoenix.server"]
+CMD ["mix", "phx.server"]
 ```
 
 It is recommended when using this that you have the following in `.dockerignore` when running `docker build`:
@@ -55,7 +58,7 @@ It is recommended when using this that you have the following in `.dockerignore`
 ```
 _build
 deps
-node_modules
+assets/node_modules
 test
 ```
 
