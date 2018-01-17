@@ -1,4 +1,4 @@
-FROM bitwalker/alpine-elixir:latest
+FROM bitwalker/alpine-elixir:1.6
 MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
 # Important!  Update this no-op ENV variable when this Dockerfile
