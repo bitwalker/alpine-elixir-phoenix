@@ -1,11 +1,11 @@
-FROM bitwalker/alpine-elixir:1.8.0
+FROM bitwalker/alpine-elixir:1.8.1
 MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
 # Important!  Update this no-op ENV variable when this Dockerfile
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2019-01-15 \
+ENV REFRESHED_AT=2019-02-22 \
     # Set this so that CTRL+G works properly
     TERM=xterm
 
