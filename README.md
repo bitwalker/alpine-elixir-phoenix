@@ -2,7 +2,7 @@
 
 This Dockerfile provides everything you need to run your Phoenix application in Docker out of the box.
 
-It is based on my `alpine-erlang` image, and installs Elixir (1.10.3), Node.js (10.16.x), Hex and Rebar. It can handle compiling
+It is based on my `alpine-erlang` image, and installs Elixir (1.10.4), Node.js (12.18.x), Hex and Rebar. It can handle compiling
 your Node and Elixir dependencies as part of it's build.
 
 ## Usage
@@ -16,9 +16,9 @@ To boot straight to a prompt in the image:
 
 ```
 $ docker run --rm -it --user=1000001 bitwalker/alpine-elixir-phoenix iex
-Erlang/OTP 22 [erts-10.6.2] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
+Erlang/OTP 23 [erts-11.0.2] [source] [64-bit] [smp:2:2] [ds:2:2:10] [async-threads:1]
 
-Interactive Elixir (1.10.3) - press Ctrl+C to exit (type h() ENTER for help)
+Interactive Elixir (1.10.4) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
