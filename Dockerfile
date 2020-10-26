@@ -1,12 +1,12 @@
-FROM bitwalker/alpine-elixir:1.10.4
+FROM bitwalker/alpine-elixir:1.11.0
 
-MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
+LABEL maintainer="Paul Schoenfelder <paulschoenfelder@gmail.com>"
 
 # Important!  Update this no-op ENV variable when this Dockerfile
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2020-09-10
+ENV REFRESHED_AT=2020-10-26
 
 # Install NPM
 RUN \
