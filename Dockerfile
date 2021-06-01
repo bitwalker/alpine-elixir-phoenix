@@ -1,4 +1,5 @@
-FROM bitwalker/alpine-elixir:1.11.4
+ARG ELIXIR_VERSION
+FROM bitwalker/alpine-elixir:${ELIXIR_VERSION}
 
 MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
@@ -6,7 +7,7 @@ MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2021-03-15
+ENV REFRESHED_AT=2021-06-01
 
 # Install NPM
 RUN \
@@ -33,4 +34,4 @@ ONBUILD RUN mix do local.hex --force, local.rebar --force
 
 WORKDIR /opt/app
 
-CMD ["/bin/sh"]
+CMD ["bash"]
