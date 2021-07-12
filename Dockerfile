@@ -21,7 +21,7 @@ RUN \
       curl \
       inotify-tools \
       nodejs \
-      nodejs-npm && \
+      npm && \
     npm install npm -g --no-progress && \
     update-ca-certificates --fresh && \
     rm -rf /var/cache/apk/*
