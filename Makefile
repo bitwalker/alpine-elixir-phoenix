@@ -17,3 +17,9 @@ build-erlang:
 		--build-arg ALPINE_MIN_VERSION=$(ALPINE_MIN_VERSION) \
 		-f erlang/Dockerfile \
 		-t phathdt379/alpine-erlang:${ERLANG_VERSION} .
+
+build-elixir:
+	docker build --build-arg ERLANG_VERSION=$(ERLANG_VERSION) \
+		--build-arg ELIXIR_VERSION=$(ELIXIR_VERSION) \
+		-f elixir/Dockerfile \
+		-t phathdt379/alpine-elixir:${ELIXIR_VERSION} .
