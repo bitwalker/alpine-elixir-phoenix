@@ -15,8 +15,6 @@ build-erlang:
 	docker build --build-arg ERLANG_VERSION=$(VERSION) \
 		--build-arg ALPINE_VERSION=$(ALPINE_VERSION) \
 		--build-arg ALPINE_MIN_VERSION=$(ALPINE_MIN_VERSION) \
-		--cache-from "type=local,src=$(BUILDX_CACHE_DIR)" \
-		--cache-to "type=local,dest=$(BUILDX_CACHE_DIR)" \
 		--platform linux/amd64,linux/arm64 \
 		-f erlang/Dockerfile \
 		-t phathdt379/alpine-erlang:${ERLANG_VERSION}
