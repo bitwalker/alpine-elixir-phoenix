@@ -12,7 +12,7 @@ help:
 	@perl -nle'print $& if m{^[a-zA-Z_-]+:.*?## .*$$}' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 build-erlang:
-	docker build --build-arg ERLANG_VERSION=$(VERSION) \
+	docker build --build-arg ERLANG_VERSION=$(ERLANG_VERSION) \
 		--build-arg ALPINE_VERSION=$(ALPINE_VERSION) \
 		--build-arg ALPINE_MIN_VERSION=$(ALPINE_MIN_VERSION) \
 		-f erlang/Dockerfile \
