@@ -110,8 +110,6 @@ ARG ALPINE_VERSION
 FROM alpine:${ALPINE_VERSION}
 ARG ALPINE_MIN_VERSION
 
-MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
-
 ENV LANG=C.UTF-8 \
 	HOME=/opt/app/ \
 	# Set this so that CTRL+G works properly
