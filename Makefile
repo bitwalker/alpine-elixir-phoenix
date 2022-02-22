@@ -1,5 +1,6 @@
 .PHONY: help
 
+USER := 295819810554.dkr.ecr.ap-southeast-1.amazonaws.com/onpointvn
 ALPINE_VERSION := 3.11
 ELIXIR_VERSION := 1.12.3
 ERLANG_VERSION := 24.0.5
@@ -16,15 +17,17 @@ build-erlang:
 		--build-arg ALPINE_VERSION=$(ALPINE_VERSION) \
 		--build-arg ALPINE_MIN_VERSION=$(ALPINE_MIN_VERSION) \
 		-f erlang/Dockerfile \
-		-t phathdt379/alpine-erlang:${ERLANG_VERSION} .
+		-t ${USER}/alpine-erlang:${ERLANG_VERSION} .
 
 build-elixir:
 	docker build --build-arg ERLANG_VERSION=$(ERLANG_VERSION) \
 		--build-arg ELIXIR_VERSION=$(ELIXIR_VERSION) \
+		--build-arg USER=$(USER) \
 		-f elixir/Dockerfile \
-		-t phathdt379/alpine-elixir:${ELIXIR_VERSION} .
+		-t ${USER}/alpine-elixir:${ELIXIR_VERSION} .
 
 build-phoenix:
 	docker build --build-arg ELIXIR_VERSION=$(ELIXIR_VERSION) \
+		--build-arg USER=$(USER) \
 		-f phoenix/Dockerfile \
-		-t phathdt379/alpine-elixir-phoenix:${ELIXIR_VERSION} .
+		-t ${USER}/alpine-elixir-phoenix:${ELIXIR_VERSION} .
