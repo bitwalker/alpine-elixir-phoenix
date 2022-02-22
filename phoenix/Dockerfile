@@ -1,5 +1,5 @@
 ARG ELIXIR_VERSION
-FROM bitwalker/alpine-elixir:${ELIXIR_VERSION}
+FROM phathdt379/alpine-elixir:${ELIXIR_VERSION}
 
 WORKDIR ${HOME}
 
