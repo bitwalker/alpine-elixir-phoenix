@@ -24,7 +24,7 @@ build-elixir:
 		-f elixir/Dockerfile \
 		-t phathdt379/alpine-elixir:${ELIXIR_VERSION} .
 
-build-phoenix: setup-buildx ## Build the Docker image
+build-phoenix:
 	docker build --build-arg ELIXIR_VERSION=$(VERSION) \
 		-f phoenix/Dockerfile \
 		-t phathdt379/alpine-elixir-phoenix:${ELIXIR_VERSION} .
