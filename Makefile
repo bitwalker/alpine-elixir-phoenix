@@ -2,8 +2,8 @@
 
 USER := 295819810554.dkr.ecr.ap-southeast-1.amazonaws.com/onpointvn
 ALPINE_VERSION := 3.11
-ELIXIR_VERSION := 1.12.3
-ERLANG_VERSION := 24.0.5
+ELIXIR_VERSION := 1.15.2
+ERLANG_VERSION := 26.0.2
 ALPINE_MIN_VERSION := $(shell echo $(ALPINE_VERSION) | sed 's/\([0-9][0-9]*\)\.\([0-9][0-9]*\)\(\.[0-9][0-9]*\)*/\1.\2/')
 XDG_CACHE_HOME ?= /tmp
 BUILDX_CACHE_DIR ?= $(XDG_CACHE_HOME)/buildx
