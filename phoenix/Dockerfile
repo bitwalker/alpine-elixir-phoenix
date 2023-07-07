@@ -5,19 +5,17 @@ FROM ${USER}/alpine-elixir:${ELIXIR_VERSION}
 WORKDIR ${HOME}
 
 # Install NPM
-RUN \
-	apk update && \
-	apk --no-cache --update add \
-	make \
-	g++ \
-	wget \
-	curl \
-	inotify-tools \
-	nodejs \
-	npm && \
-	npm install npm -g --no-progress && \
-	update-ca-certificates --fresh && \
-	rm -rf /var/cache/apk/*
+RUN apk update --allow-untrusted && apk add -U --no-cache --repository=http://dl-4.alpinelinux.org/alpine/edge/testing --allow-untrusted \
+  make \
+  g++ \
+  wget \
+  curl \
+  inotify-tools \
+  nodejs \
+  npm && \
+  npm install npm -g --no-progress && \
+  update-ca-certificates --fresh && \
+  rm -rf /var/cache/apk/*
 
 # Add local node module binaries to PATH
 ENV PATH=./node_modules/.bin:$PATH
